@@ -5,7 +5,7 @@ import time
 import addressbook_pb2
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
-_FILE_NAME = 'storage'
+_FILE_NAME = 'storage1'
 
 
 

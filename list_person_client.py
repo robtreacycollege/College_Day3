@@ -3,7 +3,7 @@ __author__ = 'anngordon'
 import addressbook_pb2
 
 _TIMEOUT_SECONDS = 10
-_FILE_NAME = 'storage'
+_FILE_NAME = 'storage1'
 
 
 def run():
