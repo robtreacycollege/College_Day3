@@ -1,4 +1,4 @@
-__author__ = 'williamwong'
+__author__ = 'anngordon'
 
 import addressbook_pb2
 

@@ -1,4 +1,4 @@
-__author__ = 'williamwong'
+__author__ = 'anngordon'
 
 import time
 import sys
@@ -15,7 +15,7 @@ class Write_Person_To_File(addressbook_pb2.EarlyAdopterWrite_Person_To_FileServi
   def Write_Person(self, request, context):
       print("write person in server")
       print(request.SerializeToString())
-      f = open(_FILE_NAME, "wb")
+      f = open(_FILE_NAME, "ab")
       f.write(request.SerializeToString())
       f.close()
       print("Print before return in server" + request.SerializeToString())
