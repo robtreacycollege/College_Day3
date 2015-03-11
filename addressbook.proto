@@ -8,6 +8,10 @@ service Write_Person_To_File {
     rpc Write_Person(AddressBook) returns (ReplyResponse) {}
 }
 
+service List_Person_From_File {
+    rpc List_Person(Request) returns (AddressBook) {}
+}
+
 message Person {
   required string name = 1;
   optional int32 id = 2;
@@ -32,5 +36,9 @@ message AddressBook {
 }
 
 message ReplyResponse {
+    required string message = 1;
+}
+
+message Request {
     required string message = 1;
 }

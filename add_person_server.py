@@ -1,7 +1,6 @@
 __author__ = 'anngordon'
 
 import time
-import sys
 
 import addressbook_pb2
 
