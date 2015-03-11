@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='addressbook.proto',
   package='tutorial',
-  serialized_pb=_b('\n\x11\x61\x64\x64ressbook.proto\x12\x08tutorial\"\xda\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x02(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12+\n\x05phone\x18\x04 \x03(\x0b\x32\x1c.tutorial.Person.PhoneNumber\x1aM\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x02(\t\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.tutorial.Person.PhoneType:\x04HOME\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"/\n\x0b\x41\x64\x64ressBook\x12 \n\x06person\x18\x01 \x03(\x0b\x32\x10.tutorial.Person\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1d\n\nHelloReply\x12\x0f\n\x07message\x18\x01 \x01(\t2F\n\x07Greeter\x12;\n\x08SayHello\x12\x16.tutorial.HelloRequest\x1a\x15.tutorial.AddressBook\"\x00')
+  serialized_pb=_b('\n\x11\x61\x64\x64ressbook.proto\x12\x08tutorial\"\xda\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x02(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12+\n\x05phone\x18\x04 \x03(\x0b\x32\x1c.tutorial.Person.PhoneNumber\x1aM\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x02(\t\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.tutorial.Person.PhoneType:\x04HOME\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"/\n\x0b\x41\x64\x64ressBook\x12 \n\x06person\x18\x01 \x03(\x0b\x32\x10.tutorial.Person\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1d\n\nHelloReply\x12\x0f\n\x07message\x18\x01 \x01(\t2E\n\x07Greeter\x12:\n\x08SayHello\x12\x16.tutorial.HelloRequest\x1a\x14.tutorial.HelloReply\"\x00')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -275,4 +275,50 @@ HelloReply = _reflection.GeneratedProtocolMessageType('HelloReply', (_message.Me
 _sym_db.RegisterMessage(HelloReply)
 
 
+import abc
+from grpc.early_adopter import implementations
+from grpc.early_adopter import utilities
+class EarlyAdopterGreeterServicer(object):
+  """<fill me in later!>"""
+  __metaclass__ = abc.ABCMeta
+  @abc.abstractmethod
+  def SayHello(self, request, context):
+    raise NotImplementedError()
+class EarlyAdopterGreeterServer(object):
+  """<fill me in later!>"""
+  __metaclass__ = abc.ABCMeta
+  @abc.abstractmethod
+  def start(self):
+    raise NotImplementedError()
+  @abc.abstractmethod
+  def stop(self):
+    raise NotImplementedError()
+class EarlyAdopterGreeterStub(object):
+  """<fill me in later!>"""
+  __metaclass__ = abc.ABCMeta
+  @abc.abstractmethod
+  def SayHello(self, request):
+    raise NotImplementedError()
+  SayHello.async = None
+def early_adopter_create_Greeter_server(servicer, port, root_certificates, key_chain_pairs):
+  import addressbook_pb2
+  import addressbook_pb2
+  method_service_descriptions = {
+    "SayHello": utilities.unary_unary_service_description(
+      servicer.SayHello,
+      addressbook_pb2.HelloRequest.FromString,
+      addressbook_pb2.HelloReply.SerializeToString,
+    ),
+  }
+  return implementations.secure_server(method_service_descriptions, port, root_certificates, key_chain_pairs)
+def early_adopter_create_Greeter_stub(host, port):
+  import addressbook_pb2
+  import addressbook_pb2
+  method_invocation_descriptions = {
+    "SayHello": utilities.unary_unary_invocation_description(
+      addressbook_pb2.HelloRequest.SerializeToString,
+      addressbook_pb2.HelloReply.FromString,
+    ),
+  }
+  return implementations.insecure_stub(method_invocation_descriptions, host, port)
 # @@protoc_insertion_point(module_scope)

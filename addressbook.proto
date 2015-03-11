@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package tutorial;
 
 message Person {
@@ -25,8 +27,8 @@ message AddressBook {
 
 service Greeter {
   // Sends a greeting
-  //rpc SayHello (HelloRequest) returns (HelloReply) {}
-  rpc SayHello (HelloRequest) returns (AddressBook) {}
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  //rpc SayHello (HelloRequest) returns (AddressBook) {}
 }
 
 
