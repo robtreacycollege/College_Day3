@@ -1,6 +1,12 @@
-syntax = "proto2";
-
 package tutorial;
+
+service LookUpPerson {
+    rpc LookUp(Person) returns (ReplyResponse) {}
+}
+
+service Write_Person_To_File {
+    rpc Write_Person(AddressBook) returns (ReplyResponse) {}
+}
 
 message Person {
   required string name = 1;
@@ -25,19 +31,6 @@ message AddressBook {
   repeated Person person = 1;
 }
 
-service Greeter {
-  // Sends a greeting
-  //rpc SayHello (HelloRequest) returns (HelloReply) {}
-  rpc SayHello (Person) returns (HelloReply) {}
-  //rpc SayHello (HelloRequest) returns (AddressBook) {}
-}
-
-
-message HelloRequest {
-  optional string name = 1;
-}
-
-// The response message containing the greetings
-message HelloReply {
-  optional string message = 1;
+message ReplyResponse {
+    required string message = 1;
 }
