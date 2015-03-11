@@ -4,7 +4,7 @@ package tutorial;
 
 message Person {
   required string name = 1;
-  required int32 id = 2;
+  optional int32 id = 2;
   optional string email = 3;
 
   enum PhoneType {
@@ -27,7 +27,8 @@ message AddressBook {
 
 service Greeter {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  //rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHello (Person) returns (HelloReply) {}
   //rpc SayHello (HelloRequest) returns (AddressBook) {}
 }
 
