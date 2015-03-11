@@ -7,4 +7,5 @@ GRPC_ROOT=../grpc
 
 #$GRPC_ROOT/python2.7_virtual_environment/bin/python server.py
 #$GRPC_ROOT/python2.7_virtual_environment/bin/python add_person_server.py
-$GRPC_ROOT/python2.7_virtual_environment/bin/python list_person_server.py
+#$GRPC_ROOT/python2.7_virtual_environment/bin/python list_person_server.py
+$GRPC_ROOT/python2.7_virtual_environment/bin/python client_list_person_server.py

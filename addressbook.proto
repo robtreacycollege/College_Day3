@@ -12,6 +12,10 @@ service List_Person_From_File {
     rpc List_Person(Request) returns (AddressBook) {}
 }
 
+service Client_List_Person_From_File {
+    rpc Client_List_Person(AddressBook) returns (ServerResponse) {}
+}
+
 message Person {
   required string name = 1;
   optional int32 id = 2;
@@ -40,5 +44,9 @@ message ReplyResponse {
 }
 
 message Request {
+    required string message = 1;
+}
+
+message ServerResponse {
     required string message = 1;
 }
